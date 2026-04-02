@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+option go_package = "github.com/YanHairulFirdan/order-service/proto/order";
+
+package order;
+
+service OrderService {
+    rpc GetOrder(GetOrderRequest) returns (GetOrderResponse);
+}
+
+message GetOrderRequest {
+    uint64 order_id = 1;
+}
+
+message GetOrderResponse {
+    uint64 id = 1;
+    uint64 product_id = 2;
+    int32 quantity = 3;
+    double total_price = 4;
+    string status = 5; // "pending", "confirmed", "cancelled"
+}
